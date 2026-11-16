@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mathews Agani — CV</title>
+<meta name="robots" content="noindex">
+<!-- Print source for assets/Mathews-Agani-CV.pdf. Same content as the CV sections of index.html. -->
+<style>
+  @page { size: Letter; margin: 0.45in 0.6in; }
+  * { box-sizing: border-box; }
+  body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #262923; font-size: 8.8pt; line-height: 1.32; margin: 0 auto; max-width: 7.1in; padding: 0; }
+  h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: 20pt; letter-spacing: -0.5pt; margin: 0; }
+  .sub { color: #555; margin: 4px 0 0; }
+  .links { margin: 6px 0 0; font-size: 9.5pt; }
+  a { color: inherit; }
+  h2 { font-size: 8pt; letter-spacing: 1.4pt; text-transform: uppercase; color: #702f43; border-bottom: 0.75pt solid #cfcfc4; padding-bottom: 3px; margin: 10px 0 5px; }
+  .item { margin-bottom: 5px; break-inside: avoid; }
+  .row { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+  .row strong { font-weight: 600; }
+  .row span { color: #555; white-space: nowrap; font-size: 9.5pt; }
+  .org { color: #555; font-style: italic; }
+  ul { margin: 3px 0 0; padding-left: 14px; }
+  li { margin-bottom: 2px; }
+  p { margin: 0; }
+  @media print { body { padding: 0; } }
+</style>
+</head>
+<body>
+  <h1>Mathews Agani</h1>
+  <p class="sub">Software engineer: backend, networks, and systems. Swarthmore College, class of 2027.</p>
+  <p class="links"><a href="mailto:magani1@swarthmore.edu">magani1@swarthmore.edu</a> · <a href="https://www.linkedin.com/in/mathew-agani">linkedin.com/in/mathew-agani</a> · <a href="https://github.com/Mathewlewisagani">github.com/Mathewlewisagani</a></p>
+
+  <h2>Education</h2>
+  <div class="item">
+    <div class="row"><strong>Swarthmore College</strong><span>Expected May 2027</span></div>
+    <p class="org">B.A. in Computer Science and B.A. in Economics</p>
+    <ul>
+      <li>Coursework: Computer Networks, Computer Systems, Software Engineering, Algorithm Design, Data Structures and Algorithms, Artificial Intelligence, Linear Algebra.</li>
+      <li>Sigma Xi Scientific Research Honor Society, inducted October 2026.</li>
+    </ul>
+  </div>
+
+  <h2>Research</h2>
+  <div class="item">
+    <p><strong>Mathews Agani</strong> and Ranysha Ware. “Poster: Testing Internet Quality Thresholds Through Application Measurements.” ACM CoNEXT Companion ’26, Utrecht, 7–10 December 2026. Accepted, to appear. DOI 10.1145/3844665.3859471.</p>
+  </div>
+
+  <h2>Experience</h2>
+  <div class="item">
+    <div class="row"><strong>Network Research Assistant</strong><span>Jun 2026 – Aug 2026</span></div>
+    <p class="org">Computer Science, Office of Undergraduate Research, Swarthmore College</p>
+    <ul>
+      <li>Built a three-machine network-emulation testbed with Linux routing and NFQUEUE, including a C program that injects probabilistic packet delay at the forwarding node.</li>
+      <li>Wrote a YAML-driven experiment runner and Snakemake analysis pipelines; the findings became a poster paper accepted to ACM CoNEXT 2026.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="row"><strong>Software Engineering Intern</strong><span>Dec 2025 – Feb 2026</span></div>
+    <p class="org">Kinertia, via Parker Dewey · Remote</p>
+    <ul>
+      <li>Shipped the achievements system for an AI productivity platform: an evaluator service, a 50-item catalog, and architecture documentation.</li>
+      <li>Wired XP awards into goal and task completion in the FastAPI backend so that a failure in rewards can never block a completion.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="row"><strong>Software Engineering Fellow</strong><span>Jun 2025 – Aug 2025</span></div>
+    <p class="org">Center for Innovation and Leadership, Swarthmore College</p>
+    <ul>
+      <li>Built a real-time chat with custom React hooks and Socket.io and Express event handlers, on a PostgreSQL schema with composite indexes and a Redis layer for presence.</li>
+      <li>Built an LLM-powered customer-service assistant for an iPhone retailer with the OpenAI API and Flask, and automated order processing with Python, PostgreSQL, and n8n, deployed on Microsoft Azure.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="row"><strong>Teaching Assistant, CS 35: Data Structures and Algorithms</strong><span>Spring 2025</span></div>
+    <p class="org">Department of Computer Science, Swarthmore College</p>
+    <ul><li>Supported 70 students across two sections in C++ through weekly labs and office hours.</li></ul>
+  </div>
+  <div class="item">
+    <div class="row"><strong>Full-Stack Developer</strong><span>Fall 2024 – Spring 2025</span></div>
+    <p class="org">Swarthmore College Computer Society (SCCS)</p>
+    <ul>
+      <li>Built a JavaScript academic scheduling tool with iCalendar export, handling timezone conversion and recurring-event edge cases.</li>
+      <li>Worked in a four-person team with Git code review to redesign the UI in TypeScript and responsive CSS.</li>
+    </ul>
+  </div>
+
+  <h2>Projects</h2>
+  <div class="item">
+    <div class="row"><strong>Roommate-Match</strong><span>github.com/Mathewlewisagani/Roommate-Match</span></div>
+    <ul>
+      <li>Full-stack React and Node.js app with JWT auth and real-time Socket.io chat on PostgreSQL and Redis.</li>
+      <li>Implemented Irving’s Stable Roommates algorithm, validated by differential testing against a brute-force oracle (10,500 seeded cases, 0 mismatches) and Jest unit and integration tests.</li>
+    </ul>
+  </div>
+
+  <h2>Skills</h2>
+  <div class="item">
+    <p><strong>Networking and systems:</strong> C, Linux, Netfilter/NFQUEUE, iptables, TCP/UDP sockets, pthreads, PCAP analysis, Wireshark, GDB, Valgrind</p>
+    <p><strong>Backend:</strong> Python, FastAPI, Node.js/Express, PostgreSQL, SQLAlchemy, Redis, Socket.io, REST APIs, JWT</p>
+    <p><strong>Testing and tooling:</strong> Jest, differential testing, Docker, Git, Snakemake, Bash</p>
+    <p><strong>Web:</strong> TypeScript, JavaScript, React, HTML/CSS, C++</p>
+  </div>
+</body>
+</html>
