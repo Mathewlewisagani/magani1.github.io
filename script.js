@@ -28,6 +28,36 @@
     });
   }
 
+  // Theme toggle. The initial theme is set inline in <head> to avoid a flash.
+  var root = document.documentElement;
+  var toggle = document.getElementById('theme-toggle');
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    var dark = theme === 'dark';
+    if (toggle) {
+      toggle.setAttribute('aria-pressed', String(dark));
+      toggle.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+    if (themeMeta) themeMeta.setAttribute('content', dark ? '#171815' : '#f8f7f3');
+  }
+  applyTheme(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  }
+  if (window.matchMedia) {
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    var follow = function (e) {
+      var saved = null; try { saved = localStorage.getItem('theme'); } catch (err) {}
+      if (!saved) applyTheme(e.matches ? 'dark' : 'light');
+    };
+    if (mq.addEventListener) mq.addEventListener('change', follow);
+  }
+
   // 2. Scroll progress bar
   var bar = document.getElementById('progress-bar');
   var ticking = false;
