@@ -39,9 +39,9 @@
       toggle.setAttribute('aria-pressed', String(dark));
       toggle.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
     }
-    if (themeMeta) themeMeta.setAttribute('content', dark ? '#171815' : '#f8f7f3');
+    if (themeMeta) themeMeta.setAttribute('content', dark ? '#0c0c0b' : '#fffafa');
   }
-  applyTheme(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  applyTheme(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
   if (toggle) {
     toggle.addEventListener('click', function () {
       var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
@@ -49,15 +49,6 @@
       try { localStorage.setItem('theme', next); } catch (e) {}
     });
   }
-  if (window.matchMedia) {
-    var mq = window.matchMedia('(prefers-color-scheme: dark)');
-    var follow = function (e) {
-      var saved = null; try { saved = localStorage.getItem('theme'); } catch (err) {}
-      if (!saved) applyTheme(e.matches ? 'dark' : 'light');
-    };
-    if (mq.addEventListener) mq.addEventListener('change', follow);
-  }
-
   // 2. Scroll progress bar
   var bar = document.getElementById('progress-bar');
   var ticking = false;
