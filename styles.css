@@ -27,9 +27,9 @@
   --electric-hot: #00b7ff;
   color-scheme: light;
 
-  --serif: "Libre Baskerville", Georgia, "Times New Roman", serif;
-  --sans: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --serif: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: "SF Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   --gutter: clamp(20px, 6.6vw, 96px);
   --max: 1248px;
@@ -328,6 +328,35 @@ a:hover { color: var(--accent); }
 }
 .contact-base ul { display: flex; gap: 24px; flex-wrap: wrap; }
 .contact-base a { text-decoration: none; padding: 6px 0; display: inline-block; }
+
+/* ---------- Apple type scale (SF Pro via the system font) ----------
+   Sizes, line heights and tracking follow apple.com: 56/48/40/32 headlines,
+   28/24/21 subheads, 17 body, 14 and 12 for small text. */
+body { font-size: 17px; line-height: 1.47; letter-spacing: -0.022em; }
+.brand { font-size: 17px; font-weight: 600; letter-spacing: -0.022em; }
+.nav-list { font-size: 13px; letter-spacing: -0.01em; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; line-height: 1.33; }
+.hero-meta { font-size: 14px; letter-spacing: -0.016em; }
+.hero h1, .hero-top h1 { font-size: clamp(32px, 4.4vw, 56px); font-weight: 600; line-height: 1.07; letter-spacing: -0.005em; }
+.hero-proof p + p { font-size: 19px; line-height: 1.42; letter-spacing: 0.012em; }
+.hero-proof strong { font-weight: 600; }
+.display, .contact .display { font-size: clamp(32px, 3.8vw, 48px); font-weight: 600; line-height: 1.08; letter-spacing: -0.003em; }
+.case-title { font-size: clamp(32px, 3.8vw, 48px); font-weight: 600; line-height: 1.08; letter-spacing: -0.003em; }
+.case-title--small { font-size: clamp(28px, 3vw, 40px); line-height: 1.1; letter-spacing: 0; }
+.case-lede { font-size: clamp(19px, 1.7vw, 21px); font-weight: 400; line-height: 1.38; letter-spacing: 0.011em; color: var(--muted); }
+.decision h4, .paper-title { font-size: clamp(24px, 2.3vw, 28px) !important; font-weight: 600 !important; line-height: 1.14 !important; letter-spacing: 0.007em !important; }
+.facts dd, .decision dd, .lead { font-size: 17px; line-height: 1.47; }
+.research dd, .cv-item > ul:not(.case-links) li, .skill-list { font-size: 17px; line-height: 1.47; }
+.cv-head h4 { font-size: 21px; font-weight: 600; line-height: 1.19; letter-spacing: 0.011em; }
+.cv-org, .skill-where, .email-addr, .more-code, .section-head { font-size: 14px; line-height: 1.43; letter-spacing: -0.016em; }
+.skill h3 { font-size: 24px; font-weight: 600; line-height: 1.17; letter-spacing: 0.009em; }
+.email-label { font-size: 24px; font-weight: 600; letter-spacing: 0.009em; }
+.text-link { font-size: 17px; font-weight: 400; }
+.facts dt, .decision dt, .research dt { font-size: 12px; letter-spacing: 0.06em; }
+.tags li, .status, .cv-date, .commit-ref, .fineprint, .evidence figcaption, .contact-base, .globe-note { font-size: 12px; line-height: 1.33; letter-spacing: 0; }
+.status { font-size: 14px; line-height: 1.43; letter-spacing: -0.016em; }
+.monogram span { font-weight: 600; letter-spacing: -0.03em; }
+.wire-label text, .d-title text, .d-note text, .d-sweep text { letter-spacing: 0; }
 
 /* ---------- motion: reveal only when JS is on ---------- */
 .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }

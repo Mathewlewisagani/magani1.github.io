@@ -7,9 +7,6 @@
   <meta name="description" content="Developer portfolio and web CV of Mathews Agani: network measurement research accepted to ACM CoNEXT 2026, backend engineering, and tested full-stack software.">
   <meta name="theme-color" content="#0c0c0b">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23262923'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f8f7f3' text-anchor='middle'%3EM%3C/text%3E%3Ccircle cx='25' cy='22' r='2' fill='%23c59b4a'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,450;9..40,500;9..40,600&family=DM+Mono:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script>
     (function () {
@@ -51,7 +48,6 @@
       <div class="wrap">
         <div class="hero-meta">
           <p>Mathews Agani / Software Engineer</p>
-          <p class="eyebrow eyebrow--muted">Swarthmore College · Class of 2027</p>
         </div>
 
         <div class="hero-top">
@@ -69,7 +65,7 @@
           </div>
           <div class="hero-proof">
             <p class="eyebrow">Proof point</p>
-            <p>First author of a poster paper accepted to <strong>ACM CoNEXT 2026</strong>: a three-machine testbed that injects packet delay into live YouTube streams to find where playback breaks.</p>
+            <p>First author, <strong>ACM CoNEXT 2026</strong> poster paper. I built a three-machine testbed that delays packets in live YouTube streams and records when playback stalls.</p>
           </div>
         </div>
 
@@ -100,7 +96,7 @@
       <div class="wrap">
         <div class="section-head">
           <h2 class="eyebrow" id="work-title">Selected work</h2>
-          <p>Three case studies and one build in progress. Strongest first.</p>
+          <p>Three case studies. One build in progress.</p>
         </div>
 
         <!-- ---------- 01 QoE ---------- -->
@@ -109,7 +105,7 @@
             <div class="case-intro reveal">
               <p class="eyebrow">01 / Network measurement · Research</p>
               <h3 class="case-title" id="qoe-title">Internet Quality Thresholds</h3>
-              <p class="case-lede">A testbed that measures when packet delay makes live video stall, using real YouTube Live traffic.</p>
+              <p class="case-lede">A testbed that finds how much packet delay it takes to stall YouTube Live.</p>
               <ul class="tags" aria-label="Stack">
                 <li>C</li><li>Linux Netfilter / NFQUEUE</li><li>Python</li><li>Docker</li><li>Selenium via NetGent</li><li>Snakemake</li>
               </ul>
@@ -117,7 +113,7 @@
                 <li><a class="text-link" href="assets/agani-ware-conext26-poster-paper.pdf">Read the paper (PDF) <span aria-hidden="true">↗</span></a></li>
                 <li><a class="text-link" href="https://github.com/rware/netgent/commits?author=Mathewagani" rel="noopener">My commits in NetGent <span aria-hidden="true">↗</span></a></li>
               </ul>
-              <p class="status"><span class="status-dot" aria-hidden="true"></span>No hosted demo: the experiment needs three machines. Figures are from the paper.</p>
+              <p class="status"><span class="status-dot" aria-hidden="true"></span>No hosted demo: it needs three machines. Figures are from the paper.</p>
             </div>
 
             <figure class="visual visual--rose reveal">
@@ -165,9 +161,9 @@
           </div>
 
           <dl class="facts reveal">
-            <div><dt>Problem</dt><dd>Internet quality scores such as M-Lab’s IQB, Cloudflare’s AIM, and the IETF Quality of Outcome draft all need thresholds that say when latency and loss make an application “optimal” or “unusable.” Today those numbers come mostly from expert opinion.</dd></div>
-            <div><dt>What I owned</dt><dd>First author, working with Prof. Ranysha Ware. I built the three-machine testbed on Linux routing and NFQUEUE, wrote the C program that delays packets, and automated the sweeps and analysis. In the public NetGent fork I wrote the YouTube Live and Twitch workflows, the container run script, and the changes to playback logging.</dd></div>
-            <div><dt>Result</dt><dd>With no injected delay, rebuffering was 0%. Delaying one packet in five by 25 ms pushed the rebuffering ratio to between 15% and 50% (median 31.9%, four runs). The work was accepted as a poster paper at ACM CoNEXT 2026.</dd></div>
+            <div><dt>Problem</dt><dd>Internet quality scores (M-Lab IQB, Cloudflare AIM, IETF QoO) need thresholds for when latency makes an app unusable. Today those thresholds come from expert opinion.</dd></div>
+            <div><dt>What I owned</dt><dd>First author, with Prof. Ranysha Ware. I built the three-machine testbed, wrote the C program that delays packets through NFQUEUE, and automated the sweeps and analysis. In NetGent I wrote the YouTube Live and Twitch workflows and changed the playback logger.</dd></div>
+            <div><dt>Result</dt><dd>No added delay: 0% rebuffering. 25 ms on one packet in five: 15–50% rebuffering, median 31.9% over four runs. Accepted as a poster paper at ACM CoNEXT 2026.</dd></div>
           </dl>
 
           <div class="evidence reveal">
@@ -186,10 +182,10 @@
               <p class="eyebrow">Key decision</p>
             </div>
             <div class="decision-body">
-              <h4>Pin the stream to 1080p and sample the player every 0.1 seconds.</h4>
+              <h4>Pin the stream to 1080p. Sample the player every 0.1 s.</h4>
               <dl>
-                <div><dt>Why</dt><dd>With resolution fixed, added delay can only show up as buffering, so one metric carries the signal. I moved the logger from one sample every 2 s to one every 0.1 s so that sub-second stalls are visible, and impairment starts only after two consecutive samples show the video playing.</dd></div>
-                <div><dt>Trade-off</dt><dd>A pinned resolution hides how adaptive bitrate would trade picture quality for smooth playback, and 4K is out of reach in headless Chrome on Linux. To limit load on YouTube’s servers the sweep covers only five delays and four frequencies, so finer differences can go unseen. The paper’s own conclusion is that choosing a threshold without an arbitrary cutoff is hard.</dd></div>
+                <div><dt>Why</dt><dd>With resolution fixed, delay can only show up as buffering. Logging every 0.1 s instead of every 2 s catches stalls shorter than a second.</dd></div>
+                <div><dt>Trade-off</dt><dd>It hides how adaptive bitrate would lower quality to avoid stalls. The sweep covers 5 delays × 4 frequencies to limit load on YouTube, so small effects can be missed.</dd></div>
               </dl>
               <p class="commit-ref">Evidence: <a href="https://github.com/rware/netgent/commit/667139f35de7291603b895adcb74d5b00f877f72" rel="noopener">commit 667139f</a>, “log every 0.1s instead of 2s.”</p>
             </div>
@@ -203,7 +199,7 @@
             <div class="case-intro reveal">
               <p class="eyebrow eyebrow--sage">02 / Algorithms · Full-stack</p>
               <h3 class="case-title" id="rm-title">Roommate-Match</h3>
-              <p class="case-lede">A roommate-matching app that uses the right algorithm for a one-sided pool, checked against a brute-force oracle.</p>
+              <p class="case-lede">Roommate matching with Irving’s Stable Roommates algorithm, checked against a brute-force oracle.</p>
               <ul class="tags" aria-label="Stack">
                 <li>Node.js / Express</li><li>React</li><li>PostgreSQL</li><li>Redis</li><li>Socket.io</li><li>Jest</li>
               </ul>
@@ -211,7 +207,7 @@
                 <li><a class="text-link" href="https://github.com/Mathewlewisagani/Roommate-Match" rel="noopener">Source on GitHub <span aria-hidden="true">↗</span></a></li>
                 <li><a class="text-link" href="https://github.com/Mathewlewisagani/Roommate-Match/blob/main/backend/tests/differential/stableRoommates.diff.test.js" rel="noopener">Differential test <span aria-hidden="true">↗</span></a></li>
               </ul>
-              <p class="status"><span class="status-dot" aria-hidden="true"></span>No hosted demo. Reproducible example: the test run shown here needs only Node.</p>
+              <p class="status"><span class="status-dot" aria-hidden="true"></span>No hosted demo. To reproduce: run the tests shown here. Only Node is needed.</p>
             </div>
 
             <figure class="visual visual--sage reveal">
@@ -237,9 +233,9 @@ Tests:       <span class="t-ok">38 passed</span>, 38 total</code></pre>
           </div>
 
           <dl class="facts reveal">
-            <div><dt>Problem</dt><dd>Roommate matching has one pool of people, not two sides. Gale–Shapley assumes proposers and receivers, so it does not fit, and a one-sided instance may have no stable matching at all.</dd></div>
-            <div><dt>What I owned</dt><dd>Everything; this is a solo project. I rewrote an earlier class version into an Express and React app with JWT cookie auth, Postgres persistence, Redis presence, and Socket.io chat, then implemented Irving’s Stable Roommates algorithm and its test suites.</dd></div>
-            <div><dt>Result</dt><dd>38 tests pass across five suites. Irving’s implementation agrees with an independent brute-force oracle on all 10,500 seeded random instances. The chat module sits at 100% statement and 97.2% branch coverage.</dd></div>
+            <div><dt>Problem</dt><dd>Roommates form one pool, not two sides, so Gale–Shapley does not apply. Some pools have no stable matching.</dd></div>
+            <div><dt>What I owned</dt><dd>Solo project. An Express and React app with JWT cookie auth, Postgres, Redis presence, and Socket.io chat. I implemented Irving’s algorithm and wrote the tests.</dd></div>
+            <div><dt>Result</dt><dd>38 tests pass. Irving’s output agrees with a brute-force oracle on 10,500 seeded random instances. Chat module coverage: 100% statements, 97.2% branches.</dd></div>
           </dl>
 
           <div class="decision reveal">
@@ -247,10 +243,10 @@ Tests:       <span class="t-ok">38 passed</span>, 38 total</code></pre>
               <p class="eyebrow eyebrow--sage">Key decision</p>
             </div>
             <div class="decision-body">
-              <h4>Implement Irving’s algorithm, and prove it with differential testing, not only hand-picked cases.</h4>
+              <h4>Use Irving’s algorithm. Check it with differential testing.</h4>
               <dl>
-                <div><dt>Why</dt><dd>Irving’s two-phase algorithm is the one designed for a single pool. Its rotation-elimination step is easy to get subtly wrong, so the test enumerates every perfect matching for small pools, filters for stability directly, and compares that verdict with the algorithm’s. The random generator is seeded, so any failure replays exactly.</dd></div>
-                <div><dt>Trade-off</dt><dd>When no stable matching exists the app falls back to greedy pairing by compatibility distance, which is simple but neither stable nor optimal. The oracle’s cost grows factorially, so it only covers pools up to ten people. Ties in compatibility are broken by database row order, which the README records as a known gap.</dd></div>
+                <div><dt>Why</dt><dd>Rotation elimination is easy to get wrong. The test enumerates every perfect matching for small pools, checks stability directly, and compares the verdict. The generator is seeded, so failures replay.</dd></div>
+                <div><dt>Trade-off</dt><dd>With no stable matching, the app pairs greedily by compatibility, which is neither stable nor optimal. The oracle only scales to 10 people. Ties fall back to database row order.</dd></div>
               </dl>
               <p class="commit-ref">Evidence: <a href="https://github.com/Mathewlewisagani/Roommate-Match/blob/main/backend/src/services/stableRoommates.js" rel="noopener">stableRoommates.js</a> and <a href="https://github.com/Mathewlewisagani/Roommate-Match/pull/1" rel="noopener">pull request #1</a>, the rewrite.</p>
             </div>
@@ -264,11 +260,11 @@ Tests:       <span class="t-ok">38 passed</span>, 38 total</code></pre>
             <div class="case-intro reveal">
               <p class="eyebrow eyebrow--iris">03 / Backend · Team product</p>
               <h3 class="case-title" id="kn-title">Kinertia achievements</h3>
-              <p class="case-lede">Making progress count in a team-built productivity platform: XP on completion, then an achievements layer on top.</p>
+              <p class="case-lede">XP for completed tasks and goals, plus an achievements system, in a team-built productivity app.</p>
               <ul class="tags" aria-label="Stack">
                 <li>Python</li><li>FastAPI</li><li>SQLAlchemy</li><li>PostgreSQL</li><li>React / TypeScript</li>
               </ul>
-              <p class="status"><span class="status-dot" aria-hidden="true"></span>Team project in a private company repository, so there is no public source or demo. My contribution is pull requests #39 and #45, both merged.</p>
+              <p class="status"><span class="status-dot" aria-hidden="true"></span>Private company repository, so no public source or demo. My work: pull requests #39 and #45, both merged.</p>
             </div>
 
             <figure class="visual visual--iris reveal">
@@ -307,9 +303,9 @@ Tests:       <span class="t-ok">38 passed</span>, 38 total</code></pre>
           </div>
 
           <dl class="facts reveal">
-            <div><dt>Problem</dt><dd>Kinertia already had an XP system, but completing a goal or task awarded nothing, and there was no way to recognise patterns over time such as streaks or milestones.</dd></div>
-            <div><dt>What I owned</dt><dd>Two merged pull requests during my internship. The first wires XP awards into goal and task completion. The second adds the achievement service, its evaluator for count, streak, threshold, and category rules, a 50-item catalog, and the architecture notes. I later consolidated the conversation and message schemas and built the group-chat creation dialog.</dd></div>
-            <div><dt>Result</dt><dd>Merged into the team’s active development branch in January 2026. Goals now award 50 to 500 XP by difficulty and tasks 8 to 25 XP by priority, and achievements are evaluated after every award.</dd></div>
+            <div><dt>Problem</dt><dd>The app had an XP system, but completing a task or goal awarded nothing. There were no streaks or milestones.</dd></div>
+            <div><dt>What I owned</dt><dd>Two merged pull requests. #39 awards XP on task and goal completion. #45 adds the achievement service, an evaluator for count, streak, threshold, and category rules, and a 50-item catalog. Later I merged the conversation and message schemas and built the group-chat dialog.</dd></div>
+            <div><dt>Result</dt><dd>Merged in January 2026. Goals award 50–500 XP by difficulty; tasks award 8–25 XP by priority. Achievements are checked after each award.</dd></div>
           </dl>
 
           <div class="decision reveal">
@@ -317,10 +313,10 @@ Tests:       <span class="t-ok">38 passed</span>, 38 total</code></pre>
               <p class="eyebrow eyebrow--iris">Key decision</p>
             </div>
             <div class="decision-body">
-              <h4>Layer achievements after the XP award, and never let either one fail a completion.</h4>
+              <h4>Check achievements after XP. Never let rewards fail a completion.</h4>
               <dl>
-                <div><dt>Why</dt><dd>Finishing a task is the core action; rewards are secondary. Achievements read what XP has already recorded instead of changing how XP works, and both calls are wrapped so an exception in the rewards code cannot roll back or block the user’s completion.</dd></div>
-                <div><dt>Trade-off</dt><dd>A failed award is visible only in the logs. A user can finish a task and silently miss XP or an unlock, and nothing reconciles it afterwards.</dd></div>
+                <div><dt>Why</dt><dd>Completing a task matters more than the reward. Both reward calls are wrapped, so an exception there cannot block or roll back the completion.</dd></div>
+                <div><dt>Trade-off</dt><dd>A failed award appears only in the logs. A user can miss XP or an unlock, and nothing retries it.</dd></div>
               </dl>
             </div>
           </div>
@@ -334,14 +330,14 @@ Tests:       <span class="t-ok">38 passed</span>, 38 total</code></pre>
             <h3 class="case-title case-title--small" id="tr-title">Trace</h3>
           </div>
           <div>
-            <p class="case-lede">Interview practice on a real codebase, in your own terminal and editor, with explicit rules for what the AI assistant may do and feedback tied to recorded evidence.</p>
-            <p>A solo project on Django and React with a Python command-line client. Exercises run in a local Docker container with no network access, bounded resources, and no fallback to the host shell. It is not release-ready, and live model calls are not yet configured.</p>
+            <p class="case-lede">Interview practice on a real codebase, in your own terminal, with set rules for what the AI assistant may do.</p>
+            <p>Solo project. Django, React, and a Python CLI. Exercises run in a local Docker container with no network and no host-shell fallback. Not release-ready; live model calls are not configured.</p>
             <ul class="tags" aria-label="Stack"><li>Django</li><li>React / Vite</li><li>PostgreSQL</li><li>Docker</li><li>Playwright</li></ul>
-            <p class="status"><span class="status-dot" aria-hidden="true"></span>Private repository while in development. No public demo or source yet.</p>
+            <p class="status"><span class="status-dot" aria-hidden="true"></span>Private repository. No public demo or source yet.</p>
           </div>
         </article>
 
-        <p class="more-code reveal">More code, including an earlier market-timing ML pipeline, is on <a href="https://github.com/Mathewlewisagani" rel="noopener">GitHub</a>.</p>
+        <p class="more-code reveal">More code is on <a href="https://github.com/Mathewlewisagani" rel="noopener">GitHub</a>.</p>
       </div>
     </section>
 
@@ -352,9 +348,9 @@ Tests:       <span class="t-ok">38 passed</span>, 38 total</code></pre>
           <div class="monogram reveal" aria-hidden="true"><span>MA</span><small>Swarthmore, PA</small></div>
           <div class="reveal">
             <p class="eyebrow eyebrow--muted">About and CV</p>
-            <h2 class="display" id="about-title">Systems first.<br>Evidence before claims.</h2>
-            <p class="lead">I study Computer Science and Economics at Swarthmore College and graduate in May 2027. I build backend services and networked systems, and I like work where I can check that the thing behaves the way I say it does: a packet-delay testbed, a matching algorithm run against a brute-force oracle, a rewards service that cannot break the action it rewards.</p>
-            <p class="lead">I’m looking for new-grad software engineering roles in backend, infrastructure, and networking. I also design; my <a href="https://mathews-agani-design.magani1904767.chatgpt.site" rel="noopener">product design portfolio</a> is the sibling of this site.</p>
+            <h2 class="display" id="about-title">Backend and networks.</h2>
+            <p class="lead">I study Computer Science and Economics at Swarthmore College and graduate in May 2027. I build backend services and network systems, and I test what I build.</p>
+            <p class="lead">I’m looking for new-grad software engineering roles in backend, infrastructure, and networking. I also design: see my <a href="https://mathews-agani-design.magani1904767.chatgpt.site" rel="noopener">product design portfolio</a>.</p>
           </div>
         </div>
 
@@ -470,7 +466,7 @@ Tests:       <span class="t-ok">38 passed</span>, 38 total</code></pre>
       <div class="wrap">
         <div class="section-head">
           <h2 class="eyebrow" id="skills-title">Skills</h2>
-          <p>Grouped by where I have used them. Each one maps to work above.</p>
+          <p>Grouped by where I used them.</p>
         </div>
         <div class="skill-grid">
           <div class="skill reveal">
@@ -508,7 +504,7 @@ Tests:       <span class="t-ok">38 passed</span>, 38 total</code></pre>
       <div class="contact-main">
         <div>
           <p class="eyebrow eyebrow--ink">Let’s talk</p>
-          <h2 class="display" id="contact-title">Good systems begin<br>with a clear measurement.</h2>
+          <h2 class="display" id="contact-title">Get in touch.</h2>
         </div>
         <div class="contact-cta">
           <a class="email-link" href="mailto:magani1@swarthmore.edu">
@@ -520,7 +516,7 @@ Tests:       <span class="t-ok">38 passed</span>, 38 total</code></pre>
       </div>
       <div class="contact-base">
         <p>© 2026 Mathews Agani</p>
-        <p>Systems understanding. Product thinking.</p>
+        <p>Swarthmore, PA</p>
         <ul>
           <li><a href="https://www.linkedin.com/in/mathew-agani" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
           <li><a href="https://github.com/Mathewlewisagani" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></li>
