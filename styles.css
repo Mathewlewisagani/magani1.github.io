@@ -206,17 +206,17 @@ a:hover { color: var(--accent); }
 .status { display: flex; gap: 10px; align-items: baseline; font-size: 13px; color: var(--muted); margin-top: 20px; max-width: 46ch; line-height: 1.55; }
 .status-dot { flex: none; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); transform: translateY(-2px); }
 
-.visual { border-radius: 6px; padding: clamp(16px, 2.8vw, 36px); padding-bottom: 0; }
-.visual--rose { background: var(--rose-bg); --tone: var(--accent); }
-.visual--sage { background: var(--sage-bg); --tone: var(--sage); }
-.visual--iris { background: var(--iris-bg); --tone: var(--iris); }
+.visual { padding: 0; }
+.visual--rose { --tone: var(--accent); }
+.visual--sage { --tone: var(--sage); }
+.visual--iris { --tone: var(--iris); }
 .visual figcaption {
   display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
   font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--tone);
   padding: 18px 0 20px;
 }
 .visual figcaption span + span { font-weight: 400; letter-spacing: .04em; text-transform: none; font-size: 12px; opacity: .85; }
-.panel { background: var(--card); border-radius: 6px; box-shadow: 0 1px 0 rgba(38,41,35,.04), 0 18px 40px -24px rgba(38,41,35,.28); overflow: hidden; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.panel { border: 1px solid var(--line); overflow: hidden; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
 .visual:hover .panel { transform: translateY(-4px); }
 .panel-bar { display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--line); font-size: 13px; }
 .panel-name { font-weight: 600; letter-spacing: -0.2px; }
@@ -245,8 +245,8 @@ a:hover { color: var(--accent); }
 .facts dd { font-size: 16px; line-height: 1.7; color: var(--ink); }
 
 .evidence { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(20px, 3vw, 40px); margin-top: clamp(36px, 4vw, 56px); align-items: start; }
-.evidence figure { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: clamp(12px, 2vw, 24px); }
-.evidence img { width: 100%; height: auto; border-radius: 4px; }
+.evidence figure { padding: 0; }
+.evidence img { width: 100%; height: auto; }
 .evidence figcaption { font-size: 13px; line-height: 1.55; color: var(--muted); margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
 
 .decision { display: grid; grid-template-columns: minmax(0, 0.32fr) minmax(0, 1fr); gap: clamp(20px, 4vw, 56px); margin-top: clamp(36px, 4vw, 56px); padding-top: 28px; border-top: 1px solid var(--line); }
