@@ -13,4 +13,4 @@ Static HTML, CSS, and vanilla JavaScript. No build step. Every page works with J
 | `about.html` | Full experience, education, and skills |
 | `cv.html` | Print source for `assets/Mathews-Agani-CV.pdf` (not linked from the site) |
 
-Hero interior image © CALMARA, credited on every page.
+Hero interior image © CALMARA (YouTube channel), credited on every page.
