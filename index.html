@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mathews Agani — Backend and network systems engineer</title>
-  <meta name="description" content="Mathews Agani builds backend and network systems. First-author poster paper at ACM CoNEXT 2026. Projects, research, and CV.">
-  <meta name="theme-color" content="#06110d">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230f3a2a'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='18' font-style='italic' fill='%23e8b07a' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+  <title>Mathews Agani</title>
+  <meta name="description" content="Mathews Agani builds backend and network systems. Computer Science and Economics at Swarthmore College. Projects, research, and résumé.">
+  <meta name="theme-color" content="#07110d">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230f3a2a'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='18' font-style='italic' fill='%23e5ad76' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="preload" as="image" href="assets/hero-lounge.jpg">
   <link rel="stylesheet" href="styles.css">
   <script>document.documentElement.classList.add('js');</script>
@@ -19,204 +19,156 @@
 
   <header class="site-header" id="site-header">
     <div class="header-inner">
-      <nav id="primary-nav" aria-label="Primary">
+      <a class="brand" href="#top">Mathews Agani</a>
+      <nav aria-label="Primary">
         <ul class="nav-list">
-          <li><a href="#work">Work</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#research">Research</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li class="show-sm"><a href="assets/Mathews-Agani-CV.pdf" download>Résumé</a></li>
-          <li class="show-sm"><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <a class="brand" href="#top" aria-label="Mathews Agani, back to top">Mathews <i>Agani</i></a>
-      <div class="header-cta">
-        <a class="hide-sm" href="assets/Mathews-Agani-CV.pdf" download>Résumé</a>
-        <a class="pill hide-sm" href="#contact">Contact</a>
-        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
-      </div>
     </div>
   </header>
 
-  <main id="main">
+  <section class="hero" id="top" aria-labelledby="name">
+    <div class="hero-bg"><img src="assets/hero-lounge.jpg" width="1770" height="1005" alt=""></div>
+    <div class="hero-inner">
+      <h1 id="name">Mathews <i>Agani</i></h1>
+      <p class="role">Software engineer · backend &amp; networks · Swarthmore ’27</p>
+      <p class="intro">I build backend services and network systems, and I test what I build. My first paper was accepted to ACM CoNEXT 2026.</p>
+      <p class="links">
+        <a href="internet-quality.html">View featured project →</a>
+        <a href="assets/Mathews-Agani-CV.pdf" download>Résumé ↓</a>
+        <a href="mailto:magani1@swarthmore.edu">Email me</a>
+      </p>
+    </div>
+  </section>
 
-    <!-- HERO -->
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-bg"><img src="assets/hero-lounge.jpg" width="1770" height="1005" alt=""></div>
-      <div class="hero-inner">
-        <p class="label rise">Software engineer · Backend &amp; networks</p>
-        <h1 class="hero-name rise" id="hero-title">Mathews <i>Agani</i></h1>
-        <p class="hero-line rise">I build backend and network systems, and I measure how they hold up.</p>
-        <p class="hero-proof rise"><span class="dot" aria-hidden="true"></span>First author · ACM CoNEXT 2026 poster paper</p>
-        <div class="hero-actions rise">
-          <a class="btn" href="internet-quality.html">View featured project <span aria-hidden="true">→</span></a>
-          <a class="btn btn--ghost" href="#work">All work</a>
+  <main id="main" class="wrap">
+
+    <section class="sec reveal" id="about" aria-labelledby="about-h">
+      <h2 id="about-h">About</h2>
+      <div class="about">
+        <div class="prose">
+          <p>I study Computer Science and Economics at Swarthmore College and graduate in May 2027.</p>
+          <p>I work on backend services and network systems. I’m looking for new-grad software engineering roles in backend, infrastructure, and networking.</p>
+          <p>I also design products: <a href="https://mathews-agani-design.magani1904767.chatgpt.site" rel="noopener">design portfolio ↗</a></p>
         </div>
-      </div>
-      <span class="scroll-cue" aria-hidden="true"></span>
-    </section>
-
-    <!-- WORK -->
-    <section class="section" id="work" aria-labelledby="work-title">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <span class="label label--jade">Selected work</span>
-            <h2 class="display" id="work-title">Things I’ve <em>built.</em></h2>
-          </div>
-        </div>
-
-        <div class="tiles">
-          <a class="tile tile--feature reveal" href="internet-quality.html">
-            <div class="tile-art art-velvet" aria-hidden="true">
-              <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <line class="glow-line" x1="60" y1="250" x2="1140" y2="250"/>
-                <rect x="560" y="226" width="80" height="48" fill="none" stroke="rgba(232,176,122,.6)"/>
-                <circle class="node" cx="60" cy="250" r="6"/><circle class="node" cx="1140" cy="250" r="6"/>
-                <rect class="pkt" x="54" y="244" width="12" height="12"/>
-                <rect class="pkt p2" x="54" y="244" width="12" height="12"/>
-                <rect class="pkt p3" x="54" y="244" width="12" height="12"/>
-                <rect class="pkt held" x="54" y="244" width="12" height="12"/>
-              </svg>
-            </div>
-            <div class="tile-body">
-              <div class="tile-meta"><span class="label label--amber">01 · Research</span><span class="label">C · Linux · Python</span></div>
-              <h3 class="tile-title">Internet Quality Thresholds</h3>
-              <p class="tile-line">How much packet delay does it take to stall a live stream?</p>
-              <span class="tile-go">Case study <span class="arr" aria-hidden="true">→</span></span>
-            </div>
-          </a>
-
-          <a class="tile reveal" href="roommate-match.html">
-            <div class="tile-art art-jade" aria-hidden="true">
-              <svg viewBox="0 0 600 560" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <g>
-                  <path class="pair" d="M150 120 Q300 40 450 120"/>
-                  <path class="pair" d="M110 230 Q300 330 490 200"/>
-                  <path class="pair" d="M170 330 Q260 250 420 320"/>
-                  <path class="pair" d="M130 400 Q300 470 470 410"/>
-                </g>
-                <g class="node">
-                  <circle cx="150" cy="120" r="6"/><circle cx="450" cy="120" r="6"/><circle cx="110" cy="230" r="6"/><circle cx="490" cy="200" r="6"/>
-                  <circle cx="170" cy="330" r="6"/><circle cx="420" cy="320" r="6"/><circle cx="130" cy="400" r="6"/><circle cx="470" cy="410" r="6"/>
-                </g>
-              </svg>
-            </div>
-            <div class="tile-body">
-              <div class="tile-meta"><span class="label label--amber">02 · Full-stack</span></div>
-              <h3 class="tile-title">Roommate-Match</h3>
-              <p class="tile-line">Stable matching, checked against a brute-force oracle.</p>
-              <span class="tile-go">Case study <span class="arr" aria-hidden="true">→</span></span>
-            </div>
-          </a>
-
-          <a class="tile reveal" href="kinertia.html">
-            <div class="tile-art art-amber" aria-hidden="true">
-              <svg viewBox="0 0 600 560" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <g transform="translate(300 220)">
-                  <circle class="ring" r="150"/><circle class="ring-on" r="150" style="--len:943;--to:250" stroke-dasharray="943" stroke-dashoffset="250"/>
-                  <circle class="ring" r="118"/><circle class="ring-on j" r="118" style="--len:742;--to:330" stroke-dasharray="742" stroke-dashoffset="330"/>
-                  <circle class="ring" r="86"/><circle class="ring-on" r="86" style="--len:541;--to:120" stroke-dasharray="541" stroke-dashoffset="120"/>
-                </g>
-              </svg>
-            </div>
-            <div class="tile-body">
-              <div class="tile-meta"><span class="label label--amber">03 · Team product</span></div>
-              <h3 class="tile-title">Kinertia achievements</h3>
-              <p class="tile-line">XP and achievements, shipped in a team-built FastAPI app.</p>
-              <span class="tile-go">Case study <span class="arr" aria-hidden="true">→</span></span>
-            </div>
-          </a>
-        </div>
-
-        <p class="next-up reveal"><span><strong>Trace</strong>Interview practice on a real codebase. In development.</span><a class="link" href="https://github.com/Mathewlewisagani" rel="noopener">More on GitHub <span class="arr" aria-hidden="true">↗</span></a></p>
+        <figure class="portrait"><img src="assets/mathews-portrait.jpg" width="934" height="1400" loading="lazy" alt="Mathews Agani"></figure>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section class="section" id="about" aria-labelledby="about-title" style="padding-top:0">
-      <div class="wrap about-grid">
-        <figure class="portrait reveal">
-          <img src="assets/mathews-portrait.jpg" width="934" height="1400" loading="lazy" alt="Portrait of Mathews Agani in a sage sweater and round glasses.">
-          <figcaption class="label">Swarthmore, PA</figcaption>
-        </figure>
-        <div class="about-text reveal">
-          <span class="label label--jade">About</span>
-          <h2 class="title" id="about-title">Backend, networks, <em>and the details in between.</em></h2>
-          <p class="lead">I study Computer Science and Economics at Swarthmore, graduating May 2027. I’m looking for new-grad roles in backend, infrastructure, and networking.</p>
-          <ol class="timeline" aria-label="Experience">
-            <li><span class="role">Network Research Assistant</span><span class="org">Swarthmore College</span><span class="when">2026</span></li>
-            <li><span class="role">Software Engineering Intern</span><span class="org">Kinertia</span><span class="when">2025–26</span></li>
-            <li><span class="role">Software Engineering Fellow</span><span class="org">Center for Innovation and Leadership</span><span class="when">2025</span></li>
-            <li><span class="role">Teaching Assistant, CS 35</span><span class="org">Swarthmore College</span><span class="when">2025</span></li>
-            <li><span class="role">Full-Stack Developer</span><span class="org">Swarthmore College Computer Society</span><span class="when">2024–25</span></li>
-          </ol>
-          <div class="about-links">
-            <a class="link" href="about.html">Full experience &amp; education <span class="arr" aria-hidden="true">→</span></a>
-            <a class="link" href="assets/Mathews-Agani-CV.pdf" download>Résumé PDF <span aria-hidden="true">↓</span></a>
-          </div>
-        </div>
-      </div>
+    <section class="sec reveal" id="experience" aria-labelledby="exp-h">
+      <h2 id="exp-h">Experience</h2>
+      <ol class="entries">
+        <li>
+          <div class="entry-head"><h3>Network Research Assistant</h3><span class="when">Jun – Aug 2026</span></div>
+          <p class="org">Swarthmore College, Office of Undergraduate Research</p>
+          <p class="desc">Built a three-machine network-emulation testbed. The work became a CoNEXT 2026 poster paper.</p>
+        </li>
+        <li>
+          <div class="entry-head"><h3>Software Engineering Intern</h3><span class="when">Dec 2025 – Feb 2026</span></div>
+          <p class="org">Kinertia, via Parker Dewey · remote</p>
+          <p class="desc">Shipped XP awards and the achievements system in a FastAPI backend.</p>
+        </li>
+        <li>
+          <div class="entry-head"><h3>Software Engineering Fellow</h3><span class="when">Jun – Aug 2025</span></div>
+          <p class="org">Center for Innovation and Leadership, Swarthmore College</p>
+          <p class="desc">Built a real-time chat on Socket.io, PostgreSQL, and Redis, and an LLM customer-service assistant.</p>
+        </li>
+        <li>
+          <div class="entry-head"><h3>Teaching Assistant, CS 35</h3><span class="when">Spring 2025</span></div>
+          <p class="org">Department of Computer Science, Swarthmore College</p>
+          <p class="desc">Supported 70 students in Data Structures and Algorithms (C++).</p>
+        </li>
+        <li>
+          <div class="entry-head"><h3>Full-Stack Developer</h3><span class="when">2024 – 2025</span></div>
+          <p class="org">Swarthmore College Computer Society</p>
+          <p class="desc">Built an academic scheduling tool with iCalendar export.</p>
+        </li>
+      </ol>
     </section>
 
-    <!-- RESEARCH -->
-    <section class="section research-band" id="research" aria-labelledby="research-title">
-      <div class="wrap research-grid">
-        <div class="reveal">
-          <span class="label label--jade">Research</span>
-          <h2 class="title" id="research-title">Testing Internet quality thresholds <em>through real applications.</em></h2>
-          <p class="badge">Accepted poster paper · ACM CoNEXT 2026</p>
-          <div class="about-links">
-            <a class="link" href="research.html">Read the research <span class="arr" aria-hidden="true">→</span></a>
-            <a class="link" href="assets/agani-ware-conext26-poster-paper.pdf">Paper (PDF) <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-        <div class="globe-wrap reveal" aria-hidden="true"><canvas id="globe" class="globe"></canvas></div>
-      </div>
+    <section class="sec reveal" id="projects" aria-labelledby="proj-h">
+      <h2 id="proj-h">Projects</h2>
+      <ul class="entries">
+        <li>
+          <div class="entry-head"><h3>Internet Quality Thresholds</h3><span class="tag">featured</span></div>
+          <p class="desc">How much packet delay does it take to stall a live stream?</p>
+          <p class="meta">C · Linux NFQUEUE · Python · Snakemake</p>
+          <p class="entry-links"><a href="internet-quality.html">Case study →</a><a href="assets/agani-ware-conext26-poster-paper.pdf">Paper</a><a href="https://github.com/rware/netgent/commits?author=Mathewagani" rel="noopener">Code ↗</a></p>
+        </li>
+        <li>
+          <div class="entry-head"><h3>Roommate-Match</h3></div>
+          <p class="desc">Stable roommate matching, checked against a brute-force oracle.</p>
+          <p class="meta">Node.js · React · PostgreSQL · Redis · Jest</p>
+          <p class="entry-links"><a href="roommate-match.html">Case study →</a><a href="https://github.com/Mathewlewisagani/Roommate-Match" rel="noopener">Code ↗</a></p>
+        </li>
+        <li>
+          <div class="entry-head"><h3>Kinertia achievements</h3></div>
+          <p class="desc">XP and achievements for a team-built productivity app.</p>
+          <p class="meta">Python · FastAPI · SQLAlchemy · PostgreSQL · private repo</p>
+          <p class="entry-links"><a href="kinertia.html">Case study →</a></p>
+        </li>
+        <li>
+          <div class="entry-head"><h3>Trace</h3><span class="when">in development</span></div>
+          <p class="desc">Interview practice on a real codebase, in your own terminal.</p>
+          <p class="meta">Django · React · Docker · private repo</p>
+        </li>
+      </ul>
     </section>
 
-    <!-- SKILLS -->
-    <section class="section" id="skills" aria-labelledby="skills-title">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <span class="label label--jade">Skills</span>
-            <h2 class="display" id="skills-title">The <em>toolkit.</em></h2>
-          </div>
-        </div>
-        <div class="skills reveal">
-          <div><span class="label">01</span><h3>Networking &amp; systems</h3><p>C · Linux · Netfilter / NFQUEUE · TCP/UDP sockets · pthreads · Wireshark · GDB</p></div>
-          <div><span class="label">02</span><h3>Backend</h3><p>Python · FastAPI · Node.js / Express · PostgreSQL · Redis · Socket.io</p></div>
-          <div><span class="label">03</span><h3>Testing &amp; tooling</h3><p>Jest · differential testing · Docker · Git · Snakemake · Bash</p></div>
-          <div><span class="label">04</span><h3>Web</h3><p>TypeScript · JavaScript · React · HTML &amp; CSS</p></div>
-        </div>
-      </div>
+    <section class="sec reveal" id="research" aria-labelledby="res-h">
+      <h2 id="res-h">Research</h2>
+      <ul class="entries">
+        <li>
+          <div class="entry-head"><h3>Poster: Testing Internet Quality Thresholds Through Application Measurements</h3></div>
+          <p class="org">Mathews Agani and Ranysha Ware · ACM CoNEXT Companion ’26, Utrecht</p>
+          <p class="desc"><span class="tag">Accepted poster paper, to appear</span></p>
+          <p class="entry-links"><a href="research.html">Summary →</a><a href="assets/agani-ware-conext26-poster-paper.pdf">Paper (PDF)</a></p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="sec reveal" id="education" aria-labelledby="edu-h">
+      <h2 id="edu-h">Education</h2>
+      <ul class="entries">
+        <li>
+          <div class="entry-head"><h3>Swarthmore College</h3><span class="when">May 2027</span></div>
+          <p class="org">B.A. Computer Science and B.A. Economics</p>
+          <p class="desc">Computer Networks · Computer Systems · Software Engineering · Algorithm Design · Data Structures and Algorithms · Artificial Intelligence · Linear Algebra</p>
+          <p class="meta">Sigma Xi Scientific Research Honor Society, 2026</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="sec reveal" id="skills" aria-labelledby="skills-h">
+      <h2 id="skills-h">Skills</h2>
+      <dl class="skills">
+        <div><dt>Networking &amp; systems</dt><dd>C, Linux, Netfilter / NFQUEUE, TCP/UDP sockets, pthreads, Wireshark, GDB</dd></div>
+        <div><dt>Backend</dt><dd>Python, FastAPI, Node.js / Express, PostgreSQL, SQLAlchemy, Redis, Socket.io</dd></div>
+        <div><dt>Testing &amp; tooling</dt><dd>Jest, differential testing, Docker, Git, Snakemake, Bash</dd></div>
+        <div><dt>Web</dt><dd>TypeScript, JavaScript, React, HTML, CSS</dd></div>
+      </dl>
     </section>
   </main>
 
-  <!-- CONTACT -->
-  <footer class="contact" id="contact" aria-labelledby="contact-title">
+  <footer class="contact" id="contact" aria-labelledby="contact-h">
     <div class="contact-bg" aria-hidden="true"><img src="assets/mathews-night.jpg" width="1076" height="1400" loading="lazy" alt=""></div>
     <div class="wrap">
-      <span class="label label--jade">Contact</span>
-      <h2 class="display" id="contact-title">Let’s build <em>something.</em></h2>
+      <h2 id="contact-h">Contact</h2>
       <a class="email" href="mailto:magani1@swarthmore.edu">magani1@swarthmore.edu</a>
-      <div class="contact-actions">
-        <a class="btn" href="mailto:magani1@swarthmore.edu">Email me <span aria-hidden="true">→</span></a>
-        <a class="btn btn--ghost" href="assets/Mathews-Agani-CV.pdf" download>Download résumé</a>
-      </div>
-      <div class="footer-base">
-        <p>© 2026 Mathews Agani</p>
-        <ul>
-          <li><a href="https://github.com/Mathewlewisagani" rel="noopener">GitHub ↗</a></li>
-          <li><a href="https://www.linkedin.com/in/mathew-agani" rel="noopener">LinkedIn ↗</a></li>
-          <li><a href="https://mathews-agani-design.magani1904767.chatgpt.site" rel="noopener">Design portfolio ↗</a></li>
-        </ul>
-      </div>
+      <p class="links">
+        <a href="assets/Mathews-Agani-CV.pdf" download>Résumé ↓</a>
+        <a href="https://www.linkedin.com/in/mathew-agani" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/Mathewlewisagani" rel="noopener">GitHub ↗</a>
+      </p>
+      <p class="foot">© 2026 Mathews Agani</p>
     </div>
   </footer>
 
   <script src="script.js" defer></script>
-  <script src="globe.js" defer></script>
 </body>
 </html>

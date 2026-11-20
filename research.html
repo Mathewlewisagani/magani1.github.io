@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research — Mathews Agani</title>
   <meta name="description" content="Poster: Testing Internet Quality Thresholds Through Application Measurements. Mathews Agani and Ranysha Ware. ACM CoNEXT Companion 2026.">
-  <meta name="theme-color" content="#06110d">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230f3a2a'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='18' font-style='italic' fill='%23e8b07a' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#07110d">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230f3a2a'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='18' font-style='italic' fill='%23e5ad76' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="styles.css">
   <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -17,89 +17,74 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" id="site-header">
     <div class="header-inner">
-      <nav id="primary-nav" aria-label="Primary">
+      <a class="brand" href="index.html">Mathews Agani</a>
+      <nav aria-label="Primary">
         <ul class="nav-list">
-          <li><a href="index.html#work">Work</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#experience">Experience</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
           <li><a href="research.html" aria-current="page">Research</a></li>
-          <li><a href="index.html#skills">Skills</a></li>
-          <li class="show-sm"><a href="assets/Mathews-Agani-CV.pdf" download>Résumé</a></li>
-          <li class="show-sm"><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <a class="brand" href="index.html" aria-label="Mathews Agani, home">Mathews <i>Agani</i></a>
-      <div class="header-cta">
-        <a class="hide-sm" href="assets/Mathews-Agani-CV.pdf" download>Résumé</a>
-        <a class="pill hide-sm" href="#contact">Contact</a>
-        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
-      </div>
     </div>
   </header>
-  <main id="main">
+  <main id="main" class="wrap">
 
-    <section class="page-hero">
-      <div class="wrap">
-        <a class="back" href="index.html#research"><span aria-hidden="true">←</span> Home</a>
-        <p class="label label--amber">Research</p>
-        <h1 class="display">Testing Internet quality thresholds <em>through application measurements.</em></h1>
-        <p class="lead"><strong style="color:var(--ivory);font-weight:500">Mathews Agani</strong> and Ranysha Ware, Swarthmore College. ACM CoNEXT Companion ’26, Utrecht, 7–10 December 2026.</p>
-        <p class="badge" style="margin-top:26px">Accepted poster paper · to appear</p>
-        <div class="page-links">
-          <a class="link" href="assets/agani-ware-conext26-poster-paper.pdf">Paper, camera-ready PDF <span class="arr" aria-hidden="true">↗</span></a>
-          <a class="link" href="https://github.com/rware/netgent/commits?author=Mathewagani" rel="noopener">Code: NetGent commits <span class="arr" aria-hidden="true">↗</span></a>
-          <a class="link" href="internet-quality.html">Engineering case study <span class="arr" aria-hidden="true">→</span></a>
-        </div>
-      </div>
+    <section class="page-top">
+      <a class="back" href="index.html#research">← Home</a>
+      <h1>Testing Internet Quality Thresholds Through Application Measurements</h1>
+      <p class="lede">Mathews Agani and Ranysha Ware, Swarthmore College.</p>
+      <p class="meta">ACM CoNEXT Companion ’26 · Utrecht, 7–10 Dec 2026 · accepted poster paper, to appear</p>
+      <p class="entry-links"><a href="assets/agani-ware-conext26-poster-paper.pdf">Paper (PDF)</a><a href="https://github.com/rware/netgent/commits?author=Mathewagani" rel="noopener">Code: NetGent commits ↗</a><a href="internet-quality.html">Engineering case study →</a></p>
+      
     </section>
 
-    <section class="wrap">
-      <div class="block block-grid reveal">
-        <div><p class="label label--jade" style="margin-bottom:16px">Summary</p><h2>The study</h2></div>
-        <div><dl class="kv">
-  <div><dt>Question</dt><dd>Can the thresholds that Internet quality scores rely on be measured from real applications instead of set by expert opinion?</dd></div>
-  <div><dt>Testbed</dt><dd>Three machines: a test device running a browser, an impairment machine, and a gateway to the Internet. A Linux Netfilter program delays each packet independently with probability 1/<i>f</i>.</dd></div>
-  <div><dt>Method</dt><dd>NetGent replays the same browser workflow against a 24-hour YouTube Live stream pinned to 1080p for about 500 seconds per run. Player state is logged every 0.1 s across five delays (25 ms to 9.4 s) and four frequencies, with four repetitions.</dd></div>
-  <div><dt>My contribution</dt><dd>First author. I built the testbed and impairment program, wrote the streaming workflows and logging changes, ran the experiments, and produced the analysis with my advisor.</dd></div>
-  <div><dt>Findings</dt><dd>Preliminary. Rebuffering is 0% at baseline and has a median of 31.9% when one packet in five is delayed by 25 ms. Using longer stalls to mark a run as degraded changes the threshold very little. Picking a threshold without an arbitrary cutoff remains an open problem.</dd></div>
-</dl>
-<p class="evidence-ref">DOI 10.1145/3844665.3859471 becomes active when the proceedings are published. The paper is licensed CC BY 4.0.</p></div>
-      </div>
+    <section class="sec reveal">
+      <h2>Question</h2>
+      <div class="prose"><p>Can the thresholds behind Internet quality scores be measured from real apps instead of set by expert opinion?</p></div>
     </section>
 
-    <section class="wrap">
-      <div class="block block-grid reveal">
-        <div><p class="label label--jade" style="margin-bottom:16px">From the paper</p><h2>Figures</h2></div>
-        <div><div class="figures">
+    <section class="sec reveal">
+      <h2>Method</h2>
+      <div class="prose"><p>Three machines: a browser, an impairment router, a gateway. A Netfilter program delays packets with probability 1/<i>f</i>. NetGent replays a YouTube Live session at 1080p; player state is logged every 0.1 s across 5 delays × 4 frequencies, four runs each.</p></div>
+    </section>
+
+    <section class="sec reveal">
+      <h2>My part</h2>
+      <div class="prose"><p>First author. I built the testbed and impairment program, wrote the workflows, ran the experiments, and did the analysis with my advisor.</p></div>
+    </section>
+
+    <section class="sec reveal">
+      <h2>Findings</h2>
+      <div class="prose"><p>Preliminary. 0% rebuffering at baseline; 31.9% median when one packet in five is delayed 25 ms. Stall length barely moves the threshold.</p></div>
+    </section>
+
+    <section class="sec reveal">
+      <h2>Figures</h2>
+      <div class="prose"><div class="figures">
   <figure class="figure">
     <img src="assets/qoe-fig1-rebuffering.png" width="1380" height="756" loading="lazy" alt="Line chart of rebuffering ratio against injected delay for four delay frequencies. With one packet in five delayed, the ratio starts near 0.3 at 25 milliseconds and climbs above 0.9. Lower frequencies stay near zero until larger delays.">
-    <figcaption>Figure 1. Rebuffering ratio by delay and frequency. Medians of four runs; bars show min and max.</figcaption>
+    <figcaption>Fig. 1 — Rebuffering ratio by delay and frequency. Medians of four runs.</figcaption>
   </figure>
   <figure class="figure">
     <img src="assets/qoe-fig2-stall-thresholds.png" width="1380" height="1344" loading="lazy" alt="Six small charts, one per stall length from 0.1 to 16 seconds, each showing the smallest injected delay at which a run counts as degraded for each delay frequency. The six charts look nearly the same.">
-    <figcaption>Figure 2. Smallest delay producing a stall of each length. Stall length barely moves the threshold.</figcaption>
+    <figcaption>Fig. 2 — Smallest delay that causes a stall of each length.</figcaption>
   </figure>
-</div></div>
-      </div>
+</div><p class="evidence-ref">DOI 10.1145/3844665.3859471 goes live when the proceedings are published. CC BY 4.0.</p></div>
     </section>
   </main>
-  <footer class="contact" id="contact" aria-labelledby="contact-title">
+  <footer class="contact" id="contact" aria-labelledby="contact-h">
     <div class="contact-bg" aria-hidden="true"><img src="assets/mathews-night.jpg" width="1076" height="1400" loading="lazy" alt=""></div>
     <div class="wrap">
-      <span class="label label--jade">Contact</span>
-      <h2 class="display" id="contact-title">Let’s build <em>something.</em></h2>
+      <h2 id="contact-h">Contact</h2>
       <a class="email" href="mailto:magani1@swarthmore.edu">magani1@swarthmore.edu</a>
-      <div class="contact-actions">
-        <a class="btn" href="mailto:magani1@swarthmore.edu">Email me <span aria-hidden="true">→</span></a>
-        <a class="btn btn--ghost" href="assets/Mathews-Agani-CV.pdf" download>Download résumé</a>
-      </div>
-      <div class="footer-base">
-        <p>© 2026 Mathews Agani</p>
-        <ul>
-          <li><a href="https://github.com/Mathewlewisagani" rel="noopener">GitHub ↗</a></li>
-          <li><a href="https://www.linkedin.com/in/mathew-agani" rel="noopener">LinkedIn ↗</a></li>
-          <li><a href="https://mathews-agani-design.magani1904767.chatgpt.site" rel="noopener">Design portfolio ↗</a></li>
-        </ul>
-      </div>
+      <p class="links">
+        <a href="assets/Mathews-Agani-CV.pdf" download>Résumé ↓</a>
+        <a href="https://www.linkedin.com/in/mathew-agani" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/Mathewlewisagani" rel="noopener">GitHub ↗</a>
+      </p>
+      <p class="foot">© 2026 Mathews Agani</p>
     </div>
   </footer>
   <script src="script.js" defer></script>
