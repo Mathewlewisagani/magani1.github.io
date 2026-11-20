@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roommate-Match — Mathews Agani</title>
+  <meta name="description" content="Case study: roommate matching with Irving's Stable Roommates algorithm, verified by differential testing against a brute-force oracle.">
+  <meta name="theme-color" content="#06110d">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230f3a2a'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='18' font-style='italic' fill='%23e8b07a' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="no-hero">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <nav id="primary-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html#work" aria-current="page">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li class="show-sm"><a href="assets/Mathews-Agani-CV.pdf" download>Résumé</a></li>
+          <li class="show-sm"><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="brand" href="index.html" aria-label="Mathews Agani, home">Mathews <i>Agani</i></a>
+      <div class="header-cta">
+        <a class="hide-sm" href="assets/Mathews-Agani-CV.pdf" download>Résumé</a>
+        <a class="pill hide-sm" href="#contact">Contact</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="wrap">
+        <a class="back" href="index.html#work"><span aria-hidden="true">←</span> All work</a>
+        <p class="label label--amber">02 · Algorithms · Full-stack</p>
+        <h1 class="display">Roommate-<em>Match</em></h1>
+        <p class="lead">Roommate matching with Irving’s Stable Roommates algorithm, checked against a brute-force oracle.</p>
+        <ul class="chips" aria-label="Stack"><li>Node.js / Express</li><li>React</li><li>PostgreSQL</li><li>Redis</li><li>Socket.io</li><li>Jest</li></ul>
+        <div class="page-links"><a class="link" href="https://github.com/Mathewlewisagani/Roommate-Match" rel="noopener">Source on GitHub <span class="arr" aria-hidden="true">↗</span></a><a class="link" href="https://github.com/Mathewlewisagani/Roommate-Match/blob/main/backend/tests/differential/stableRoommates.diff.test.js" rel="noopener">Differential test <span class="arr" aria-hidden="true">↗</span></a></div>
+        <p class="note">No hosted demo. Reproducible example below: run the test suite.</p>
+      </div>
+    </section>
+
+    <section class="wrap" aria-label="Summary">
+      <dl class="facts reveal">
+        <div><dt>Problem</dt><dd>Roommates form one pool, not two sides, so Gale–Shapley does not apply. Some pools have no stable matching.</dd></div>
+        <div><dt>What I owned</dt><dd>Solo project. An Express and React app with JWT cookie auth, Postgres, Redis presence, and Socket.io chat. I implemented Irving’s algorithm and wrote the tests.</dd></div>
+        <div><dt>Result</dt><dd>38 tests pass. Irving’s output agrees with a brute-force oracle on 10,500 seeded random instances. Chat module coverage: 100% statements, 97.2% branches.</dd></div>
+      </dl>
+    </section>
+
+    <section class="wrap">
+      <div class="block block-grid reveal">
+        <div><p class="label label--jade" style="margin-bottom:16px">Reproducible example</p><h2>Run it yourself</h2></div>
+        <div><figure class="panel">
+  <div class="panel-bar"><span>backend · npm test</span><span>Real output</span></div>
+<pre class="term" tabindex="0" aria-label="Terminal output of the test run"><code><span class="dim">$ git clone https://github.com/Mathewlewisagani/Roommate-Match</span>
+<span class="dim">$ cd Roommate-Match/backend &amp;&amp; npm install &amp;&amp; npm test</span>
+
+<span class="ok">PASS</span> tests/unit/stableRoommates.test.js
+<span class="ok">PASS</span> tests/unit/messageService.test.js
+<span class="ok">PASS</span> tests/unit/presenceService.test.js
+<span class="ok">PASS</span> tests/integration/chat.socket.test.js
+<span class="ok">PASS</span> tests/differential/stableRoommates.diff.test.js
+
+  [differential] <strong>10500 cases, 0 mismatches</strong>, 7550ms
+  (seed 0x5eed1e55)
+
+Test Suites: <span class="ok">5 passed</span>, 5 total
+Tests:       <span class="ok">38 passed</span>, 38 total</code></pre>
+  <figcaption style="padding:0 20px 18px">Run on 15 Nov 2026, Node 23. Only Node is needed to reproduce.</figcaption>
+</figure></div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="block block-grid reveal">
+        <div><p class="label label--jade" style="margin-bottom:16px">Key decision</p><h2>Use Irving’s algorithm. Prove it with differential testing.</h2></div>
+        <div><dl class="kv"><div><dt>Why</dt><dd>Rotation elimination is easy to get wrong. The test enumerates every perfect matching for small pools, checks stability directly, and compares the verdict. The generator is seeded, so failures replay.</dd></div><div><dt>Trade-off</dt><dd>With no stable matching, the app pairs greedily by compatibility, which is neither stable nor optimal. The oracle only scales to 10 people. Ties fall back to database row order.</dd></div></dl><p class="evidence-ref">Evidence: <a href="https://github.com/Mathewlewisagani/Roommate-Match/blob/main/backend/src/services/stableRoommates.js" rel="noopener">stableRoommates.js</a> and <a href="https://github.com/Mathewlewisagani/Roommate-Match/pull/1" rel="noopener">pull request #1</a>, the rewrite.</p></div>
+      </div>
+    </section>
+
+    <!-- REFLECTION (roommate-match): none supplied yet. -->
+
+    <nav class="wrap" aria-label="More case studies">
+      <div class="pager">
+        <a href="internet-quality.html"><small class="label">Previous</small><span>Internet Quality Thresholds</span></a>
+        <a href="kinertia.html"><small class="label">Next</small><span>Kinertia achievements</span></a>
+      </div>
+    </nav>
+  </main>
+  <footer class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="contact-bg" aria-hidden="true"><img src="assets/mathews-night.jpg" width="1076" height="1400" loading="lazy" alt=""></div>
+    <div class="wrap">
+      <span class="label label--jade">Contact</span>
+      <h2 class="display" id="contact-title">Let’s build <em>something.</em></h2>
+      <a class="email" href="mailto:magani1@swarthmore.edu">magani1@swarthmore.edu</a>
+      <div class="contact-actions">
+        <a class="btn" href="mailto:magani1@swarthmore.edu">Email me <span aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost" href="assets/Mathews-Agani-CV.pdf" download>Download résumé</a>
+      </div>
+      <div class="footer-base">
+        <p>© 2026 Mathews Agani · Interior image in the hero © CALMARA</p>
+        <ul>
+          <li><a href="https://github.com/Mathewlewisagani" rel="noopener">GitHub ↗</a></li>
+          <li><a href="https://www.linkedin.com/in/mathew-agani" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://mathews-agani-design.magani1904767.chatgpt.site" rel="noopener">Design portfolio ↗</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js" defer></script>
+</body>
+</html>

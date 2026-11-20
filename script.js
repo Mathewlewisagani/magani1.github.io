@@ -1,7 +1,6 @@
-// Progressive enhancement only. The page is complete without this file.
+// Progressive enhancement only. Every page is complete without this file.
 (function () {
   'use strict';
-
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // 1. Reveal on scroll
@@ -10,74 +9,63 @@
     reveals.forEach(function (el) { el.classList.add('is-vis'); });
   } else {
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-vis');
-          io.unobserve(entry.target);
-        }
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-vis'); io.unobserve(e.target); }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
     reveals.forEach(function (el) { io.observe(el); });
-    // Anything already in view (or reached by an anchor jump) should never stay hidden.
     window.addEventListener('load', function () {
       setTimeout(function () {
-        reveals.forEach(function (el) {
-          if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('is-vis');
-        });
+        reveals.forEach(function (el) { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('is-vis'); });
       }, 60);
     });
   }
 
-  // Theme toggle. The initial theme is set inline in <head> to avoid a flash.
-  var root = document.documentElement;
-  var toggle = document.getElementById('theme-toggle');
-  var themeMeta = document.querySelector('meta[name="theme-color"]');
-  function applyTheme(theme) {
-    root.setAttribute('data-theme', theme);
-    var dark = theme === 'dark';
-    if (toggle) {
-      toggle.setAttribute('aria-pressed', String(dark));
-      toggle.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
-    }
-    if (themeMeta) themeMeta.setAttribute('content', dark ? '#0c0c0b' : '#fffafa');
+  // 2. Header turns solid once the hero scrolls away
+  var header = document.getElementById('site-header');
+  var hero = document.querySelector('.hero');
+  function solid() {
+    if (!header) return;
+    var limit = hero ? hero.offsetHeight - 120 : 0;
+    header.classList.toggle('is-solid', window.scrollY > limit);
   }
-  applyTheme(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
-  if (toggle) {
-    toggle.addEventListener('click', function () {
-      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      applyTheme(next);
-      try { localStorage.setItem('theme', next); } catch (e) {}
+  window.addEventListener('scroll', function () { requestAnimationFrame(solid); }, { passive: true });
+  solid();
+
+  // 3. Mobile menu
+  var btn = header && header.querySelector('.menu-btn');
+  function setMenu(open) {
+    header.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.textContent = open ? 'Close' : 'Menu';
+  }
+  if (btn) {
+    btn.addEventListener('click', function () { setMenu(!header.classList.contains('is-open')); });
+    header.querySelectorAll('nav a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && header.classList.contains('is-open')) { setMenu(false); btn.focus(); }
     });
   }
-  // 2. Scroll progress bar
-  var bar = document.getElementById('progress-bar');
-  var ticking = false;
-  function paint() {
-    var max = document.documentElement.scrollHeight - window.innerHeight;
-    var p = max > 0 ? Math.min(1, window.scrollY / max) : 0;
-    if (bar) bar.style.transform = 'scaleX(' + p + ')';
-    ticking = false;
-  }
-  window.addEventListener('scroll', function () {
-    if (!ticking) { ticking = true; requestAnimationFrame(paint); }
-  }, { passive: true });
-  paint();
 
-  // 3. Current section in the nav
+  // 4. Current section in the nav (home page anchors only)
   var links = Array.prototype.slice.call(document.querySelectorAll('.nav-list a[href^="#"]'));
   var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
   function mark() {
-    var line = window.innerHeight * 0.35;
-    var current = -1;
-    targets.forEach(function (t, i) {
-      if (t && t.getBoundingClientRect().top <= line) current = i;
-    });
-    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = links.length - 1;
-    links.forEach(function (a, i) {
-      if (i === current) a.setAttribute('aria-current', 'true');
-      else a.removeAttribute('aria-current');
-    });
+    var line = window.innerHeight * 0.4, current = -1;
+    targets.forEach(function (t, i) { if (t && t.getBoundingClientRect().top <= line) current = i; });
+    links.forEach(function (a, i) { if (i === current) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
   }
-  window.addEventListener('scroll', function () { requestAnimationFrame(mark); }, { passive: true });
-  mark();
+  if (links.length) { window.addEventListener('scroll', function () { requestAnimationFrame(mark); }, { passive: true }); mark(); }
+
+  // 5. Gentle parallax on the hero image
+  var bg = document.querySelector('.hero-bg');
+  if (bg && !reduce) {
+    window.addEventListener('scroll', function () {
+      requestAnimationFrame(function () {
+        var y = Math.min(window.scrollY, window.innerHeight);
+        bg.style.transform = 'translate3d(0,' + (y * 0.25) + 'px,0)';
+        bg.style.opacity = String(1 - y / window.innerHeight * 0.6);
+      });
+    }, { passive: true });
+  }
 })();

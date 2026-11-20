@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Internet Quality Thresholds — Mathews Agani</title>
+  <meta name="description" content="Case study: a three-machine testbed that measures how much packet delay it takes to stall YouTube Live. ACM CoNEXT 2026 poster paper.">
+  <meta name="theme-color" content="#06110d">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230f3a2a'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='18' font-style='italic' fill='%23e8b07a' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="no-hero">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <nav id="primary-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html#work" aria-current="page">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li class="show-sm"><a href="assets/Mathews-Agani-CV.pdf" download>Résumé</a></li>
+          <li class="show-sm"><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="brand" href="index.html" aria-label="Mathews Agani, home">Mathews <i>Agani</i></a>
+      <div class="header-cta">
+        <a class="hide-sm" href="assets/Mathews-Agani-CV.pdf" download>Résumé</a>
+        <a class="pill hide-sm" href="#contact">Contact</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="wrap">
+        <a class="back" href="index.html#work"><span aria-hidden="true">←</span> All work</a>
+        <p class="label label--amber">01 · Network measurement · Research</p>
+        <h1 class="display">Internet Quality <em>Thresholds</em></h1>
+        <p class="lead">A testbed that finds how much packet delay it takes to stall YouTube Live.</p>
+        <ul class="chips" aria-label="Stack"><li>C</li><li>Linux Netfilter / NFQUEUE</li><li>Python</li><li>Docker</li><li>Selenium via NetGent</li><li>Snakemake</li></ul>
+        <div class="page-links"><a class="link" href="assets/agani-ware-conext26-poster-paper.pdf">Read the paper (PDF) <span class="arr" aria-hidden="true">↗</span></a><a class="link" href="https://github.com/rware/netgent/commits?author=Mathewagani" rel="noopener">My commits in NetGent <span class="arr" aria-hidden="true">↗</span></a><a class="link" href="research.html">Full research write-up <span class="arr" aria-hidden="true">→</span></a></div>
+        <p class="note">No hosted demo: the testbed needs three machines. Figures are from the paper.</p>
+      </div>
+    </section>
+
+    <section class="wrap" aria-label="Summary">
+      <dl class="facts reveal">
+        <div><dt>Problem</dt><dd>Internet quality scores (M-Lab IQB, Cloudflare AIM, IETF QoO) need thresholds for when latency makes an app unusable. Today those come from expert opinion.</dd></div>
+        <div><dt>What I owned</dt><dd>First author, with Prof. Ranysha Ware. I built the testbed, wrote the C program that delays packets through NFQUEUE, and automated the sweeps and analysis. In NetGent I wrote the YouTube Live and Twitch workflows and changed the playback logger.</dd></div>
+        <div><dt>Result</dt><dd>No added delay: 0% rebuffering. 25 ms on one packet in five: median 31.9% rebuffering over four runs. Accepted as a poster paper at ACM CoNEXT 2026.</dd></div>
+      </dl>
+    </section>
+
+    <section class="wrap">
+      <div class="block block-grid reveal">
+        <div><p class="label label--jade" style="margin-bottom:16px">How it works</p><h2>The testbed</h2></div>
+        <div><figure class="panel">
+  <div class="panel-bar"><span>Testbed</span><span>Diagram</span></div>
+  <svg class="diagram" viewBox="0 0 560 250" role="img" aria-labelledby="tb-t tb-d">
+    <title id="tb-t">Testbed topology</title>
+    <desc id="tb-d">A test device running a browser sends traffic through an impairment machine, which holds selected packets in an NFQUEUE program, then through a gateway to YouTube Live on the Internet. Return traffic follows the same path.</desc>
+    <g class="d-box"><rect x="10" y="60" width="140" height="92"/><rect x="210" y="60" width="140" height="92" class="d-accent"/><rect x="410" y="60" width="140" height="92"/></g>
+    <g class="d-line"><line x1="150" y1="96" x2="210" y2="96"/><line x1="350" y1="96" x2="410" y2="96"/><line x1="210" y1="118" x2="150" y2="118"/><line x1="410" y1="118" x2="350" y2="118"/><line x1="480" y1="60" x2="480" y2="28"/></g>
+    <g class="d-arrow"><path d="M204 92l6 4-6 4z"/><path d="M404 92l6 4-6 4z"/><path d="M156 114l-6 4 6 4z"/><path d="M356 114l-6 4 6 4z"/></g>
+    <g class="d-title"><text x="80" y="92" text-anchor="middle">Test device</text><text x="280" y="92" text-anchor="middle">Impairment</text><text x="480" y="92" text-anchor="middle">Gateway</text><text x="480" y="20" text-anchor="middle">YouTube Live</text></g>
+    <g class="d-note"><text x="80" y="112" text-anchor="middle">Browser workflow</text><text x="80" y="128" text-anchor="middle">player stats / 0.1 s</text><text x="280" y="112" text-anchor="middle">NFQUEUE program</text><text x="280" y="128" text-anchor="middle">hold packet, p = 1/f</text><text x="480" y="112" text-anchor="middle">Forwards to</text><text x="480" y="128" text-anchor="middle">the Internet</text></g>
+    <g class="d-mono"><text x="10" y="200">delay  25 · 75 · 375 · 1875 · 9375 ms</text><text x="10" y="224">freq   1/5 · 1/25 · 1/75 · 1/375 of packets</text></g>
+  </svg>
+  <figcaption style="padding:14px 20px 18px">Drawn from Section 2 of the paper.</figcaption>
+</figure></div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="block block-grid reveal">
+        <div><p class="label label--jade" style="margin-bottom:16px">Findings</p><h2>What the data shows</h2></div>
+        <div><div class="figures">
+  <figure class="figure">
+    <img src="assets/qoe-fig1-rebuffering.png" width="1380" height="756" loading="lazy" alt="Line chart of rebuffering ratio against injected delay for four delay frequencies. With one packet in five delayed, the ratio starts near 0.3 at 25 milliseconds and climbs above 0.9. Lower frequencies stay near zero until larger delays.">
+    <figcaption>Figure 1. Rebuffering ratio by delay and frequency. Medians of four runs; bars show min and max.</figcaption>
+  </figure>
+  <figure class="figure">
+    <img src="assets/qoe-fig2-stall-thresholds.png" width="1380" height="1344" loading="lazy" alt="Six small charts, one per stall length from 0.1 to 16 seconds, each showing the smallest injected delay at which a run counts as degraded for each delay frequency. The six charts look nearly the same.">
+    <figcaption>Figure 2. Smallest delay producing a stall of each length. Stall length barely moves the threshold.</figcaption>
+  </figure>
+</div></div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="block block-grid reveal">
+        <div><p class="label label--jade" style="margin-bottom:16px">Key decision</p><h2>Pin the stream to 1080p. Sample every 0.1 s.</h2></div>
+        <div><dl class="kv"><div><dt>Why</dt><dd>With resolution fixed, delay can only show up as buffering. Logging every 0.1 s instead of every 2 s catches stalls shorter than a second.</dd></div><div><dt>Trade-off</dt><dd>It hides how adaptive bitrate would lower quality to avoid stalls. The sweep covers 5 delays × 4 frequencies to limit load on YouTube, so small effects can be missed.</dd></div></dl><p class="evidence-ref">Evidence: <a href="https://github.com/rware/netgent/commit/667139f35de7291603b895adcb74d5b00f877f72" rel="noopener">commit 667139f</a>, “log every 0.1s instead of 2s.”</p></div>
+      </div>
+    </section>
+
+    <!-- REFLECTION (internet-quality): none supplied yet. -->
+
+    <nav class="wrap" aria-label="More case studies">
+      <div class="pager">
+        <a href="kinertia.html"><small class="label">Previous</small><span>Kinertia achievements</span></a>
+        <a href="roommate-match.html"><small class="label">Next</small><span>Roommate-Match</span></a>
+      </div>
+    </nav>
+  </main>
+  <footer class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="contact-bg" aria-hidden="true"><img src="assets/mathews-night.jpg" width="1076" height="1400" loading="lazy" alt=""></div>
+    <div class="wrap">
+      <span class="label label--jade">Contact</span>
+      <h2 class="display" id="contact-title">Let’s build <em>something.</em></h2>
+      <a class="email" href="mailto:magani1@swarthmore.edu">magani1@swarthmore.edu</a>
+      <div class="contact-actions">
+        <a class="btn" href="mailto:magani1@swarthmore.edu">Email me <span aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost" href="assets/Mathews-Agani-CV.pdf" download>Download résumé</a>
+      </div>
+      <div class="footer-base">
+        <p>© 2026 Mathews Agani · Interior image in the hero © CALMARA</p>
+        <ul>
+          <li><a href="https://github.com/Mathewlewisagani" rel="noopener">GitHub ↗</a></li>
+          <li><a href="https://www.linkedin.com/in/mathew-agani" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://mathews-agani-design.magani1904767.chatgpt.site" rel="noopener">Design portfolio ↗</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js" defer></script>
+</body>
+</html>

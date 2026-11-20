@@ -1,4 +1,4 @@
-// Rotating network globe for the hero. Decorative: the page is complete without it.
+// Rotating network globe for the research band. Decorative: the page is complete without it.
 // Land shape: Natural Earth 1:110m (public domain), reduced to a 180x90 bitmask.
 (function () {
   'use strict';
@@ -50,7 +50,7 @@
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function readColors() {
     var cs = getComputedStyle(document.documentElement);
-    dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    dark = true; // the site is dark-only
     ['ink', 'muted', 'faint', 'line', 'accent', 'gold', 'paper', 'electric', 'electric-hot'].forEach(function (k) { colors[k] = cs.getPropertyValue('--' + k).trim(); });
   }
   function resize() {
